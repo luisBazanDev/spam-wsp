@@ -1,0 +1,32 @@
+{
+  "name": "spam-wsp",
+  "version": "1.0.0",
+  "description": "A other bot for spam",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src index.js",
+    "dev": "nodemon src index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/luisBazanDev/spam-wsp.git"
+  },
+  "keywords": [
+    "whatsapp-web",
+    "spam",
+    "bot"
+  ],
+  "author": "Luis Bazán",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luisBazanDev/spam-wsp/issues"
+  },
+  "homepage": "https://github.com/luisBazanDev/spam-wsp#readme",
+  "dependencies": {
+    "qrcode-terminal": "^0.12.0",
+    "whatsapp-web.js": "^1.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}

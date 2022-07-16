@@ -1,0 +1,8 @@
+# Auth Whatsapp Web
+.wwebjs_auth
+
+# Libraries
+node_modules
+
+# Advancement
+db.json
