@@ -11,7 +11,7 @@ const client = new Client({
 
 var qrcode = require("qrcode-terminal");
 
-const msgs = ["Hellow world"];
+const msgs = ["[IGNORE] Message from the bot."];
 
 client.on("qr", (qr) => {
   // Generate and scan this code with your phone
@@ -51,8 +51,8 @@ client.on("ready", async () => {
   console.log(`Loaded ${contacts.length} valid contacts.`);
   console.log(`Messages are:\n${msgs}`);
 
-  const index = 0;
-  setInterval(() => {
+  var index = 0;
+  setInterval(async () => {
     const contact = contacts[index];
     if (contact == undefined) {
       console.log("Finish! :D");
@@ -62,7 +62,11 @@ client.on("ready", async () => {
       `#${index + 1} Send msg to ${contact.name} - ${contact.number}`
     );
     client
-      .sendMessage(contact.number, getMsg)
+      .sendMessage(
+        (await (await client.getContactById(contact.id._serialized)).getChat())
+          .id._serialized,
+        getMsg()
+      )
       .then(() => {
         advancement.ready.push(contact.number);
         saveAdvancement();
@@ -73,8 +77,8 @@ client.on("ready", async () => {
         saveAdvancement();
         console.log(`#${index + 1} Error.`);
       });
-    index + 1;
-  }, 600);
+    index++;
+  }, 1000);
 });
 
 function getMsg() {
